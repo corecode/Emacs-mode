@@ -43,6 +43,7 @@ var shortcuts = {
 	'CTRL-R': {'h': 'Reverse I-search links', 'f': function(e) { searchLinks(e, 0) } },
 	'CTRL-ALT-R': {'h': 'Reverse regexp I-search links', 'f': function(e) { searchLinks(e, 1) } },
 	'CTRL-J': {'h': 'Jump to link or form control', 'f': function(e) { jumpTo(e) } },
+	'R': {'h': 'Reload page', 'f': function(e) { window.location.reload() } },
 	// native functions
 	'BACKSPACE': {'h': 'Previous page in history', 'f': function(e) { log("Hmm.. How did you get here?") } },
 	'CTRL-T': {'h': 'New tab', 'f': function(e) { chrome.extension.sendRequest({'action':'NEW_TAB'}) } },
