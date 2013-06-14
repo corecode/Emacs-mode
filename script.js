@@ -431,6 +431,7 @@ var searchLinks = function(e, reg) {
 				links[marked].classList.remove("emacsHighlightLinksSelected");
 				marked = (marked+1) % links.length;
 				links[marked].classList.add("emacsHighlightLinksSelected");
+				links[marked].scrollIntoViewIfNeeded();
 			}
 		}
 		if (input == "CTRL-R" || input == "CTRL-ALT-R") {
@@ -441,6 +442,7 @@ var searchLinks = function(e, reg) {
 				marked = (marked-1) % links.length;
 				if (marked < 0) marked += links.length;
 				links[marked].classList.add("emacsHighlightLinksSelected");
+				links[marked].scrollIntoViewIfNeeded();
 			}
 		}
 	}
@@ -469,7 +471,10 @@ var searchLinks = function(e, reg) {
 		}
 		links = nlinks;
 		marked = links.length ? marked % links.length : 0;
-		if (links.length > marked) links[marked].classList.add("emacsHighlightLinksSelected");
+		if (links.length > marked) {
+			links[marked].classList.add("emacsHighlightLinksSelected");
+			links[marked].scrollIntoViewIfNeeded();
+		}
 		log(name+sstr+" ("+links.length+" matches)");
 	}
 }
